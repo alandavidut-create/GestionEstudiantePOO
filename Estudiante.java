@@ -37,5 +37,19 @@ public class Estudiante {
     public boolean haAprobado() {
         return this.promedio >= 60; // Retorna true si pasó, false si no
     }
+// --- AGREGAR ESTO EN Estudiante.java ---
+
+    // Getters para permitir que las subclases accedan a los datos privados
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public double getPromedio() {
+        return this.promedio;
+    }
 }
 

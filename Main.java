@@ -1,29 +1,20 @@
-/**
- * Clase Principal
- * Punto de entrada de la aplicación para probar la lógica.
- */
 public class Main {
     public static void main(String[] args) {
-        
-        System.out.println("--- Sistema de Gestión de Estudiantes Iniciado ---\n");
+        System.out.println("--- Sistema de Gestión con Herencia ---\n");
 
-        // 1. Instanciación de Objetos (Crear objetos a partir de la clase Estudiante)
-        Estudiante estudiante1 = new Estudiante("Ana López", 101);
-        Estudiante estudiante2 = new Estudiante("Carlos Ruiz", 102);
+        // 1. Instanciamos un Estudiante Presencial
+        EstudiantePresencial alumno1 = new EstudiantePresencial("Juan Pérez", 101, "Edificio A - Sala 3");
+        alumno1.asignarPromedio(85.0); // Usamos método heredado de la clase base
 
-        // 2. Uso de Métodos
-        
-        // Asignamos calificaciones
-        estudiante1.asignarPromedio(95.5);
-        estudiante2.asignarPromedio(55.0);
+        // 2. Instanciamos un Estudiante Virtual
+        EstudianteVirtual alumno2 = new EstudianteVirtual("Maria Gomez", 102, "Google Meet");
+        alumno2.asignarPromedio(92.5); // Usamos método heredado
 
-        // Mostramos la información (Prueba de métodos)
-        estudiante1.mostrarInfo();
-        System.out.println("¿Aprobó?: " + (estudiante1.haAprobado() ? "Sí" : "No"));
-        
-        System.out.println(); // Salto de línea
-
-        estudiante2.mostrarInfo();
-        System.out.println("¿Aprobó?: " + (estudiante2.haAprobado() ? "Sí" : "No"));
+        // 3. Demostración de Polimorfismo
+        // Al llamar a mostrarInfo(), Java sabe cuál versión usar automáticamente
+        System.out.println("Información del Alumno 1:");
+        alumno1.mostrarInfo(); 
+        System.out.println("\nInformación del Alumno 2:");
+        alumno2.mostrarInfo();
     }
 }
